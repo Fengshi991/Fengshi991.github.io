@@ -27,8 +27,8 @@ isHttps: true
 ## RSS requires a plugin to take effect | 使用 RSS 需先安装对应插件
 ## https://github.com/hexojs/hexo-generator-feed
 subnav:
-  github: Fengshi991.github.io
-  #weibo: xxxxxxxx
+  github: xxxxx
+  weibo: xxxxxxxx
   rss: /atom.xml
 
   # Google: "#"
@@ -43,7 +43,7 @@ disqus:
   # It is unnecessary to enable disqus here if
   # you have set "disqus_shortname" in your site's "_config.yml"
 changyan:
-  on: false
+  on: true
   appid: xxxx
   conf: xxxxxxxxx
   # 是否开启畅言评论，
@@ -109,11 +109,13 @@ tagcloud: true
 
 # Blogroll, Link exchange | 友情链接
 # friends: false
-##friends:
+friends:
+  csdn: http://blog.csdn.net/baidu_21483933
+  segmentfault: https://segmentfault.com/blog/maocg_web
   简书: http://www.jianshu.com/users/eb37ef89c746/latest_articles
 #是否开启“关于我”。
 aboutme: 爱动漫,爱游戏,爱编程,爱运动,爱的太多了!
-aboutme: false
+#aboutme: false
 
 # 是否在新窗口打开链接
 open_in_new: false
