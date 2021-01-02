@@ -1,38 +1,33 @@
-<footer class="footer <%- theme.footer_fixation ? 'fixed' : '' %>">
-    <% if (theme.blogroll) { %>
-    <div class="top">
-        <% if (theme.blogroll) { %>
-            <%- partial("_plugins/blogroll") %>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        <% if (theme.visit_counter.on) { %>
+            <div class="visit">
+                <% if (theme.visit_counter.site_visit) { %>
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" ><%= theme.visit_counter.site_visit %>: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                <% } %>
+                <% if (theme.visit_counter.site_visit && theme.visit_counter.page_visit) { %>
+                    <span>, </span>
+                <% } %>
+                <% if (theme.visit_counter.page_visit) { %>
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"><%= theme.visit_counter.page_visit %>: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                <% } %>
+            </div>
         <% } %>
-    </div>
-    <% } %>
-    <div class="bottom">
-        <p>
-            <span>
-                <%-config.author %> &copy; <%if (theme.since_year && theme.since_year < date(new Date(), "YYYY")) {%><%- theme.since_year %> - <%}%><%- date(new Date(), "YYYY") %>
-            </span>
-        		
-           	<% if(theme.ICP_license) {%>
-           	<span>
-           		<a href="http://www.miitbeian.gov.cn/" target="_blank"><%- theme.ICP_license %></a>
-           	</span>
-           	<% } %>
-            
-            <% if(theme.power) {%>
-            <span>
-	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank"><%= config.theme%></a>
-            </span>
-            <% } %>
-            
-            <% if(theme.hosted) {%>
-            <span>
-	            Hosted by <a href="https://coding.net/pages" target="_blank">Coding Pages</a>
-            </span>
-            <% } %>
-
-            <% if (theme.visit_counter) { %>
-                <%- partial("_plugins/site-visitor") %>
-            <% } %>
-        </p>
     </div>
 </footer>

@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
 <%- partial('_partial/head') %>
-<%- partial('_custom/head') %>
 <body>
-    <%- partial('_partial/loading') %>
-    <%- partial('_partial/menu') %>
-    <main id="main">
-        <%- body %>
-    </main>
-    <%- partial('_partial/footer') %>
+  <div id="container">
+    <div class="left-col">
+    <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+    </div>
+    <div class="mid-col">
+      <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+      <div class="body-wrap"><%- body %></div>
+      <%- partial('_partial/footer') %>
+    </div>
     <%- partial('_partial/after-footer') %>
-    <%- partial('_custom/body') %>
-    <%- partial('_partial/script') %>
-    <%- partial('_custom/script') %>
+  </div>
 </body>
 </html>

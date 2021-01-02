@@ -1,58 +1,43 @@
-hexo-theme-mellow
-=================
-[![](https://img.shields.io/badge/release-v1.4.4-blue.svg?style=flat-square)](https://github.com/codefine/hexo-theme-mellow/releases)
-[![](https://img.shields.io/badge/document-CN-green.svg?style=flat-square)](https://github.com/codefine/hexo-theme-mellow/wiki)
-[![](https://img.shields.io/badge/preview-Michael.Lu's%20blog-ff69b4.svg?style=flat-square)](https://blog.lujingtao.com)
-[![Join the chat at https://gitter.im/hexo-theme-mellow/Lobby](https://badges.gitter.im/hexo-theme-mellow/Lobby.svg)](https://gitter.im/codefine/hexo-theme-mellow?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+# Hexo黑蓝主题
+![主题图片](http://o7kalf5h3.bkt.clouddn.com/blog-index.png)
 
-![mellow](http://blog.lujingtao.com/uploads/show.jpg)
+## 特性
+本主题由**SPFK**修改而成，具体改进如下：
+1. 颜色由黑色和蓝色为主，主题鲜明直观
+2. 压缩css和js（SPFK主题没有压缩css，js）
+3. seo优化，
+4. 增加站内搜索（根据title来搜索）
+5. 删除stylus，直接使用css
+6. 评论插件修改，删除多说，增加畅言,增加gitment评论插件
 
-Material Design 风格的Hexo主题，基于 **Hexo 3.0+** & **Node 7.x+** 制作。 **已经被Hexo官方收录**。
+## 注意1：
+大家使用主题的时候，把**主题配置文件_config.yml**以下几项必须修改，
+```yml
+## 项目里实用的是我博客的正式代码，请大家修改成自己的！
+google_analytics: xxx
+baidu_analytics: xxxxxxx
+disqus:
+  on: false
+  shortname: xxxx
+# 畅言评论
+changyan:
+  on: true
+  appid: xxxx
+  conf: xxxxx
 
-> TODO: Internationalization
+```
 
-## Feature
+## 注意2：
+如果域名是https的话，https必须配置为true，不是https设置为false
+```yml
+# 域名是否启用https，如果启用，js文件必须https加载
+isHttps: true
+```
+## 注意3：
+如果使用gitment作为评论插件，参考一下两篇文章。
+[gitment常见问题](http://xichen.pub/2018/01/31/2018-01-31-gitment/)
+[自动初始化gitment](https://draveness.me/git-comments-initialize)
 
-1. 全端响应式主题。
-2. 添加了英文字体支持 bluehost。
-3. 添加了一些波纹效果。By [Waves](https://github.com/fians/Waves)
-4. 无后端依赖的分享、浏览统计功能实现。
-5. 完美集成valine以及gitment评论系统。
-6. 基于静态数据的站内搜索，无第三方侵入。
-7. 支持文章打赏。
-8. 文章内可引入Github仓库。
-9. 持续更新中... 
 
-## Document
+注意：使用本主题请仔细查看[black-blue Hexo使用介绍](http://geeksblog.cc/hexo-theme.html)
 
-[文档 | Document](https://github.com/codefine/hexo-theme-mellow/wiki)
-
-## ChangeLog
-
-升级前请仔细查看更改内容，如非必要可不升级。
-
-[ChangeLog](https://github.com/codefine/hexo-theme-mellow/releases)
-
-## FAQ
-
-初次使用时`hexo g`报错，大部分情况是因为**缺少依赖**，或者依赖版本问题。前往[wiki-主题安装](https://github.com/codefine/hexo-theme-mellow/wiki/1.-%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85)查看如何安装依赖。
-
-打不开tags和categories等页面，是因为这两个页面并不属于hexo初始化范畴，需要手动创建。参考[wiki-菜单](https://github.com/codefine/hexo-theme-mellow/wiki/2.-%E4%B8%BB%E9%A2%98%E5%B8%B8%E8%A7%84%E9%85%8D%E7%BD%AE#%E8%8F%9C%E5%8D%95)中*开启与目录中对应页面方法*
-
-## Community
-
-QQ群：527753185
-
-## Users
-
-> 下方陈列长期使用mellow主题的博客地址，不定期更新。需要的话请提交issue并附上博客的在线地址。
-
-[yirufeng's Blog](http://www.sivan.tech) - http://www.sivan.tech
-
-[YuanLiChenAi](https://yuanlichenai.cn/) - https://yuanlichenai.cn/
-
-[Zip的小窝](https://blog.ourfor.top/) - https://blog.ourfor.top/
-
-[ZhangQiang's blog](https://zq-jhon.github.io/) - https://zq-jhon.github.io/
-
-[Dandan Rhapsody](https://blog.dandan.tw/) - https://blog.dandan.tw/

@@ -1,69 +1,32 @@
-<header class="top-header" id="header">
-    <div class="flex-row clearfix">
-        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">
-            <span><%= title %></span>
-            <% if(config.subtitle && is_home()){ %>
-            <span> - </span>
-            <span class="header-description"><%= config.subtitle %></span>
-            <% } else if (page.layout === 'page' && page.description) {%>
-            <span> - </span>
-            <span class="header-description"><%= page.description %></span>
-            <% } %>
-        </div>
-        <% if (theme.local_search) { %>
-        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
-            <i class="icon icon-lg icon-search"></i>
-        </a>
+<header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+      </h1>
+      <% if (theme.subtitle){ %>
+        <h2 id="subtitle-wrap">
+          <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
+        </h2>
+      <% } %>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <% for (var i in theme.menu){ %>
+          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
         <% } %>
-    </div>
-</header>
-<header class="content-header <%- hdClass %>">
-    <%- fragment_cache('bg', function(){
-        return `<img src="${theme.headerBg}" class="header-bg">`;
-    }) %>
-    <div class="container fade-scale">
-        <h1 class="title"><%= title %></h1>
-        <h5 class="subtitle">
-            <% if(is_post()){ %>
-                <%- partial('post/head-meta') %>
-            <% } else if(is_home()){ %>
-                <%- config.subtitle %>
-            <% } else if (page.layout === 'page' && page.description) {%>
-                <%- page.description %>
-            <% } %>
-        </h5>
-        <% if ( is_archive() ) {
-            let postsLen = site.posts.length;
-            let contentsLen = 0;
-            site.posts.forEach((post) => {
-                contentsLen += strip_html(post.content).length;
-            });
-            contentsLen = (contentsLen / 1000).toFixed(1);
-        %>
-        <div class="remind">
-            <p>总计文章( <span><%= postsLen %></span> )篇，约( <span><%= contentsLen %>K</span> )字</p>
-            <p>Keep moving😎!!!</p>
-        </div>
+      </nav>
+      <nav id="sub-nav">
+        <% if (theme.rss){ %>
+          <a id="nav-rss-link" class="nav-icon" href="<%- theme.rss %>" title="RSS Feed"></a>
         <% } %>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <%- search_form({button: '&#xF002;'}) %>
+      </div>
     </div>
-    <%- partial('tags-bar', {
-        type: hdClass.split('-')[0]
-    }) %>
+  </div>
 </header>
-<% if (theme.local_search) { %>
-<div id="site_search">
-    <div class="search-title clearfix">
-        <span class="pull-left">
-          <i class="icon icon-lg icon-search"></i>
-        </span>
-        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
-        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
-          <i class="icon icon-lg icon-close"></i>
-        </a>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<% } %>
